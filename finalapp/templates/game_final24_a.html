@@ -1,0 +1,39 @@
+<head>
+    <link href="select2.css" rel="stylesheet"/>
+    <script src="select2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#ee").select2();
+        });
+    </script>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet"> 
+    <style>
+            body{background: #ea983f ;}</style>
+</head>
+<body>
+        <p style="font-family: 'Black Han Sans', sans-serif; font-size:50px">지하철게임</p>
+    <p style="font-family: 'Black Han Sans', sans-serif; font-size:30px">
+        <a href = "{% url 'game_final24B' %}">1호선</a>
+        <a href = "2호선.html">2호선</a>
+        <a href = "3호선.html">3호선</a>
+        <a href = "1호선.html">4호선</a>
+        <a href = "1호선.html">5호선</a>
+        <a href = "1호선.html">6호선</a>
+        <a href = "1호선.html">7호선</a>
+        <a href = "1호선.html">8호선</a>
+        <a href = "1호선.html">9호선</a>
+    </p>
+    <br><br><br><Br>
+                <p style="font-family: 'Black Han Sans', sans-serif; font-size:50px">
+                 <a href="javascript:history.back()">되돌아가기</a>
+                </p>
+</html>

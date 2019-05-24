@@ -1,0 +1,31 @@
+<html>
+<head>
+{% load static %}
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <style>
+        body{background: #000000 ;}</style>  
+</head>
+<body style="text-align:center;">
+	<br>
+	<br>	
+    <h1 style="font-family: 'Black Han Sans', sans-serif; color:white; font-size:70pt;">주루마블</h1>
+	<img src="{% static 'finalapp/logo_juru.png' %}" height="18%" width="32%">
+	<p style="font-family: 'Black Han Sans', sans-serif; font-size:30px; color:white;">인세훈, 최주연, 조예진, 이재준
+		<p style="font-family: 'Black Han Sans', sans-serif; font-size:30px; color:white;">같이 플레이 하실 인원 수를 선택해주세요.
+		<br>
+		<a href="{% url 'playerSelect_2p' %}"><img src="{% static 'finalapp/2p.png' %}" height="9%" width="16%"></a>
+   	    <br>
+		<a href="{% url 'playerSelect_3p' %}"><img src="{% static 'finalapp/3p.png' %}" height="9%" width="16%"></a>
+		<br>
+		<a href="{% url 'playerSelect_4p' %}"><img src="{% static 'finalapp/4p.png' %}" height="9%" width="16%"></a>
+
+<br>
+
+	<p style="font-family: 'Black Han Sans', sans-serif; font-size:30px">{% comment %} 인원수를 입력하세요 : <input type="number" name="fname" id="myNum" value="2"> 명</p> <br>
+	<p id="p"></p>
+	<input type="submit" value="클릭 시 정보 전송">
+	</form> {% endcomment %}
+</body>
+

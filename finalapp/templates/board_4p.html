@@ -1,0 +1,1085 @@
+
+<html>
+<head>
+
+	{% load static %}
+
+	<link rel="stylesheet" href="{% static 'finalapp/design.css' %}">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'finalapp/move.css' %}">
+  	<link rel = "stylesheet" type = "text/css" href = "{% static 'finalapp/roll.css' %}">
+
+</head>
+<body>
+<div class="whole">
+		<h3>made by<br>
+		멋쟁이사자처럼 at 중앙대학교<br>
+		7기 인세훈, 최주연, 조예진<br>
+		6기 이재준<br>
+		</h3> 
+{% comment %} 		
+			{% if pos1_2pmode == 0 %}
+				<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+			{% endif %}
+			{% if pos2_2pmode == 0 %}
+				<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+			{% endif %} {% endcomment %}
+		<br>
+		<br>
+
+	<div class="table">
+		<div class="board">
+			<div class="center">
+				<div class="dice">
+					<div id = "aaa" style="color:white;"></div>
+					<div id = "bbb" style="color:white;"></div>
+					<div id = "1" style="color:white;"></div>
+
+				
+					<form name="myForm" action="{% url 'diceCheck' %}" method="get">
+						<input id="myInput" type="hidden" name="dicenum"/>
+						<input type="submit" value="send" hidden>
+					</form>
+
+					
+					<h1><b>이번 턴은 {{ whosturn }} 번님의 차례입니다.</b></h1>
+					<section class="container1">
+					<div id="cube">
+						<div class="front">
+						<span class="dot dot1"></span>
+						</div>
+						<div class="back">
+						<span class="dot dot1"></span>
+						<span class="dot dot2"></span>
+						</div>
+						<div class="right">
+						<span class="dot dot1"></span>
+						<span class="dot dot2"></span>  
+						<span class="dot dot3"></span>
+						</div>
+						<div class="left">
+						<span class="dot dot1"></span>
+						<span class="dot dot2"></span>  
+						<span class="dot dot3"></span>
+						<span class="dot dot4"></span>
+						</div>
+						<div class="top">
+						<span class="dot dot1"></span>
+						<span class="dot dot2"></span>  
+						<span class="dot dot3"></span>
+						<span class="dot dot4"></span>
+						<span class="dot dot5"></span>
+						</div>
+						<div class="bottom">
+						<span class="dot dot1"></span>
+						<span class="dot dot2"></span>  
+						<span class="dot dot3"></span>
+						<span class="dot dot4"></span>
+						<span class="dot dot5"></span>
+						<span class="dot dot6"></span>
+						</div>
+					</div>
+					</section>
+					<script src= "{% static 'finalapp/diceA.js' %}"></script>
+				</div>
+
+			</div>
+
+			<!--왼쪽 위 코너-->
+		
+		<div class="space corner go">
+			<div class="container">
+			</div>
+		</div>
+
+			<!--밑에 줄(좌->우)-->
+
+			<div class="row horizontal-row bottom-row">
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar light-blue"></div>
+						<div class="name">훈민정음</div>
+						<div class="price">
+        					<form action="{% url 'game_final09' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 9%}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 9 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 9 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 9 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar light-blue"></div>
+						<div class="name">3/6/9게임</div>
+						<div class="price">
+        					<form action="{% url 'game_final08' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 8 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 8 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 8 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 8 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space chance">
+					<div class="container">
+						<div class="name">황금<br>열쇠
+						<input type="image" src="{% static 'finalapp/key.png' %}" alt="Submit" width="48" height="48">
+						<i class="drawing fa fa-question"></i>
+						<div class="price">
+        					<form action="{% url 'goldenKey' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 7 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 7 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 7 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 7 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar light-blue"></div>
+						<div class="name">백종원 게임</div>
+						<div class="price">
+        					<form action="{% url 'game_final06' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 6 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 6 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 6 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 6 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space railroad">
+					<div class="container">
+						<div class="name">랜덤 게임</div>
+						<i class="drawing fa fa-subway"></i>
+						<div class="price">
+        					<form action="{% url 'game_final05' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 5 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 5 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 5 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 5 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space fee income-tax">
+					<div class="container">
+						<div class="name">너만 한잔</div>
+						<div class="price">
+        					<form action="{% url 'game_final04' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 4 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 4 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 4 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 4 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar dark-purple"></div>
+						<div class="name">딸당수바</div>
+						<div class="price">
+        					<form action="{% url 'game_final03' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 3 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 3 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 3 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 3 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space community-chest">
+					<div class="container">
+						<div class="name">황금<br>열쇠
+
+						<input type="image" src="{% static 'finalapp/key.png' %}" alt="Submit" width="48" height="48">
+
+												<div class="price">
+        					<form action="{% url 'goldenKey' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+
+						{% if pos1_2pmode == 2 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 2 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 2 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 2 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+
+						</div>
+					</div>
+				</div>
+				
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar dark-purple"></div>
+						<div class="name three-line-name">나 빼고<br>한잔</div>
+						<div class="price">
+        					<form action="{% url 'game_final01' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 1 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 1 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 1 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 1 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+			<!--왼쪽아래-->
+
+			<div class="space corner jail">
+				<div class="just">그냥</div>
+				<div class="drawing">
+					<div class="container">
+						<div class="name"></div>
+						<div class="window">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<i class="person fa fa-frown-o"></i>
+						</div>
+						<div class="name">자판기</div>
+						<div class="price">
+        					<form action="{% url 'game_final10' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 10 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 10 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 10 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 10 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+			<!--왼쪽줄(위->아래)-->
+
+			<div class="row vertical-row left-row">
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar orange"></div>
+						<div class="name">이순신 게임</div>
+						<div class="price">
+        					<form action="{% url 'game_final19' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 19 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 19 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 19 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 19 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar orange"></div>
+						<div class="name">냉수 한잔!</div>
+						<div class="price">
+        					<form action="{% url 'game_final18' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 18 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 18 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 18 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 18 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space community-chest">
+					<div class="container">
+						<div class="name">황금<br>열쇠
+						<input type="image" src="{% static 'finalapp/key.png' %}" alt="Submit" width="48" height="48">
+						<i class="drawing fa fa-cube"></i>
+						<div class="price">
+        					<form action="{% url 'goldenKey' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 17 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 17 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 17 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 17 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar orange"></div>
+						<div class="name">눈치 게임</div>
+						<div class="price">
+        					<form action="{% url 'game_final16' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 16 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 16 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 16 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 16 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space railroad">
+					<div class="container">
+						<div class="name long-name">손병호 게임</div>
+						<i class="drawing fa fa-subway"></i>
+						<div class="price">
+        					<form action="{% url 'game_final15' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 15 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 15 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 15 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 15 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar purple"></div>
+						<div class="name">내 맞은편 나랑 한잔</div>
+						<div class="price">
+        					<form action="{% url 'game_final14' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 14 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 14 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 14 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 14 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar purple"></div>
+						<div class="name">주사위 굴리기</div>
+						<div class="price">
+        					<form action="{% url 'game_final13' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 13 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 13 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 13 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 13 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space utility electric-company">
+					<div class="container">
+						<div class="name">두부 딸기</div>
+						<i class="drawing fa fa-lightbulb-o"></i>
+						<div class="price">
+        					<form action="{% url 'game_final12' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 12 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 12 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 12 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 12 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar purple"></div>
+						<div class="name">사다리 타기 게임</div>
+						<div class="price">
+        					<form action="{% url 'game_final11' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 11 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 11 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 11 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 11 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+			<!--왼쪽위 코너 -->
+
+			
+		<div class="space corner free-parking">
+			<div class="container">
+				<i class="drawing fa fa-car"></i>
+										{% comment %} <div class="name">술 1잔 적립!</div>
+						<div class="price">
+        					<form action="{% url 'game_final20' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div> {% endcomment %}
+						{% if pos1_2pmode == 20 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 20 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 20 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 20 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+			</div>
+		</div>
+
+			<!--위쪽 줄-->
+
+			<div class="row horizontal-row top-row">
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar red"></div>
+						<div class="name">바니바니</div>
+						<div class="price">
+        					<form action="{% url 'game_final21' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 21 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 21 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 21 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 21 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space chance">
+					<div class="container">
+						<div class="name">황금<br>열쇠
+						<input type="image" src="{% static 'finalapp/key.png' %}" alt="Submit" width="48" height="48">
+						<i class="drawing fa fa-question blue"></i>
+						<div class="price">
+        					<form action="{% url 'goldenKey' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 22 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 22 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 22 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 22 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar red"></div>
+						<div class="name">그냥 1잔 마셔</div>
+						<div class="price">
+        					<form action="{% url 'game_final23' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 23 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 23 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 23 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 23 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar red"></div>
+						<div class="name">지하철 게임</div>
+						<div class="price">
+        					<form action="{% url 'game_final24A' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 24 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 24 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 24 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 24 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space railroad">
+					<div class="container">
+						<div class="name">한 턴 쉬기</div>
+						<i class="drawing fa fa-subway"></i>
+						<div class="price">
+        					<form action="{% url 'game_final25' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 25 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 25 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 25 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 25 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar yellow"></div>
+						<div class="name">너 소맥 한잔!</div>
+						<div class="price">
+        					<form action="{% url 'game_final26' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 26 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 26 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 26 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 26 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar yellow"></div>
+						<div class="name">공산당 게임</div>
+						<div class="price">
+        					<form action="{% url 'game_final27' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 27 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 27 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 27 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 27 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space utility waterworks">
+					<div class="container">
+						<div class="name">출석부 게임</div>
+						<i class="drawing fa fa-tint"></i>
+						<div class="price">
+        					<form action="{% url 'game_final28' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 28 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 28 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 28 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 28 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar yellow"></div>
+						<div class="name">더 게임 오브 데스</div>
+						<div class="price">
+        					<form action="{% url 'game_final29' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 29 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 29 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 29 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 29 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			
+			<!--오른쪽 코너-->
+
+			<div class="space corner go-to-jail">
+			<div class="container">
+						{% if pos1_2pmode == 30 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 30 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 30 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 30 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+			</div>
+		</div>
+		
+			<!--오른쪽 줄-->
+
+			<div class="row vertical-row right-row">
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar green"></div>
+						<div class="name">QUIZ</div>
+						<div class="price">
+        					<form action="{% url 'game_final31' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 31 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 31 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 31 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 31 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar green"></div>
+						<div class="name three-line-name">고진감래주 1잔 지목</div>
+						<div class="price">
+        					<form action="{% url 'game_final32' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 32 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 32 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 32 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 32 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space community-chest">
+					<div class="container">
+						<div class="name">황금<br> 열쇠
+						<input type="image" src="{% static 'finalapp/key.png' %}" alt="Submit" width="48" height="48">
+						<i class="drawing fa fa-cube"></i>
+						<div class="price">
+        					<form action="{% url 'goldenKey' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 33 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 33 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 33 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 33 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar green"></div>
+						<div class="name long-name">앞으로 3칸</div>
+						<div class="price">
+        					<form action="{% url 'game_final34' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 34 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 34 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 34 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 34 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space railroad">
+					<div class="container">
+						<div class="name">슬롯 머신</div>
+						<i class="drawing fa fa-subway"></i>
+						<div class="price">
+        					<form action="{% url 'game_final35' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 35 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 35 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 35 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 35 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space chance">
+					<div class="container">
+						<div class="name">황금<br>열쇠
+						<input type="image" src="{% static 'finalapp/key.png' %}" alt="Submit" width="48" height="48">
+						<i class="drawing fa fa-question"></i>
+						<div class="price">
+        					<form action="{% url 'goldenKey' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 36 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 36 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 36 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 36 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar dark-blue"></div>
+						<div class="name">007빵</div>
+						<div class="price">
+        					<form action="{% url 'game_final37' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 37 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 37 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 37 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 37 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space fee luxury-tax">
+					<div class="container">
+						<div class="name">맥주 빨대로 다 마시기</div>
+						<div class="drawing fa fa-diamond"></div>
+						<div class="price">
+        					<form action="{% url 'game_final38' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 38 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 38 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 38 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 38 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+				<div class="space property">
+					<div class="container">
+						<div class="color-bar dark-blue"></div>
+						<div class="name">두부게임</div>
+						<div class="price">
+        					<form action="{% url 'game_final39' %}" method="POST">
+           						{% csrf_token %}
+                				<button type="submit">GO!</button>
+        					</form>
+						</div>
+						{% if pos1_2pmode == 39 %}
+						<img id = "marker1" src = "{% static 'finalapp/marker1.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos2_4pmode == 39 %}
+						<img id = "marker2" src = "{% static 'finalapp/marker2.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos3_4pmode == 39 %}
+						<img id = "marker3" src = "{% static 'finalapp/marker3.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+						{% if pos4_4pmode == 39 %}
+						<img id = "marker4" src = "{% static 'finalapp/marker4.png' %}" style = "position:absolute; width:1in; height : 1in; top:150px; left:0px;">
+						{% endif %}
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+
+</html>
